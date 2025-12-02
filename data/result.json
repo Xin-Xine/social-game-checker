@@ -26,7 +26,7 @@
   {
     "game": "メメントモリ",
     "company": "Others",
-    "date": "2025-11-25",
+    "date": "2025-11-27",
     "title": "Ver.4.3.0アップデート",
     "summary": "新キャラクター「マーリン(藍)」実装、選択ピックアップガチャ復刻、各種不具合修正。",
     "link": "https://mememori-game.com/boi_official/"
@@ -58,18 +58,18 @@
   {
     "game": "崩壊3rd",
     "company": "HoYoverse",
-    "date": "2025-11-17",
-    "title": "Ver.8.6アップデート",
-    "summary": "新キャラクター追加、メインストーリー第2部更新、各種イベント実施。前Ver.8.5からの大型拡張。",
-    "link": "https://www.honkaiimpact3.com/global/ja-jp/news/178965"
+    "date": "2025-02-20",
+    "title": "Ver.8.1『祈り導く初太鼓』アップデート",
+    "summary": "8周年記念Ver.8.1実施、新S級キャラ「キアナ・カスラナ（ドン！烈火の願い星）」実装、テレサ新コネクター追加、メインストーリー更新、豪華ログインボーナスやイベント多数開催。",
+    "link": "https://gamewith.jp/gamedb/1505/articles/40266"
   },
   {
     "game": "ゼンレスゾーンゼロ",
     "company": "HoYoverse",
     "date": "2025-11-26",
-    "title": "Ver.2.4アップデート",
-    "summary": "新キャラクター「ダイアリン」「盤岳」登場、ストーリー新章「遥かなる深淵に臨めども」追加、各種イベント開催。",
-    "link": "https://zenless.hoyoverse.com/ja-jp/news/169845"
+    "title": "Ver.2.4『遥かなる深淵に臨めども』アップデート",
+    "summary": "新エージェント「ダイアリン」「盤岳」登場、鉱区跡地を舞台とした新章追加、イベントやシステム改善を実施。",
+    "link": "https://www.onlinegamer.jp/news/202511140023/"
   },
   {
     "game": "アイドルマスター シンデレラガールズ",
@@ -119,15 +119,16 @@
     "summary": "新キャラクター「ヤクモ」「タカネ」登場、総力戦「クロカゲ」実施、メインストーリーVol.6第3章公開。",
     "link": "https://www.onlinegamer.jp/game/1000001753/news/"
   },
-  {
+{
     "game": "雀魂 -じゃんたま-",
     "company": "Yostar",
-    "date": "2025-11-25",
-    "title": "コラボイベント『アイドルマスター シャイニーカラーズ』開催",
-    "summary": "シャニマスコラボイベント開始、限定雀士や着せ替え実装、新規イベント「青雲の志」同時開催。",
-    "link": "https://game8.jp/jantama/632473"
-  },
-  {
+    "date": "2025-11-19",
+    "title": "期間限定イベント「姫川's インベーダー」開催",
+    "summary": "イベント「姫川's インベーダー」開催。イベントクエスト達成でアイテム「弾薬」を入手し、報酬獲得可能。特定雀士・装飾品ピックアップ、期間限定着せ替え販売も同時実施。",
+    "link": "https://mahjongsoul.com/news/319"
+  }
+,
+ {
     "game": "鳴潮",
     "company": "KuroGames",
     "date": "2025-11-20",
