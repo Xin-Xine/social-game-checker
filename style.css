@@ -1,0 +1,36 @@
+.day {
+  background: linear-gradient(135deg, #ffffff, #f0f4ff);
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+}
+.day:hover {
+  transform: translateY(-3px);
+}
+
+.update-item {
+  border-top: 1px solid #ddd;
+  padding-top: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.update-item h4 {
+  color: #2c3e50;
+  font-weight: bold;
+}
+
+.update-item a {
+  display: inline-block;
+  margin-top: 0.3rem;
+  padding: 0.3rem 0.6rem;
+  background-color: #4a90e2;
+  color: white;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+.update-item a:hover {
+  background-color: #357ab8;
+}
