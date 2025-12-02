@@ -3,33 +3,62 @@
 <head>
   <meta charset="UTF-8">
   <title>ソシャゲアップデート情報</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="ソシャゲのアップデート情報をまとめたサイト。最近やってなかったゲームを思い出すために。">
+  <meta name="keywords" content="ソシャゲ,アップデート,原神,hoyoverse">
+  <meta name="robots" content="index, follow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/style.css">
+
+  <link rel="icon" href="/favicon-32.ico" type="image/x-icon">
+
+<!-- PNG形式（モダンブラウザ用） -->
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/favicon-128.png" sizes="128x128" type="image/png">
+
+
+  <!-- 構造化データ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "ソシャゲアップデート情報",
+    "url": "https://xin-xine.github.io/social-game-checker/",
+    "logo": "https://xin-xine.github.io/social-game-checker/logo-header-128.png",
+    "sameAs": []
+  }
+  </script>
 </head>
 <body>
-  <header>
-    <h1>ソシャゲアップデート情報</h1>
-    <div id="notice" style="margin: 1rem 0; padding: 0.5rem; background: #f9f9f9; border: 1px solid #ccc;">
-      <p>
-    ソシャゲの掛け持ちをサポートするために作成しました。
-    AIを組み込んでいるため情報の精度は改善中です。</p>
+  <header class="site-header">
+    <div class="sc-brand">
+      <img src="/logo-header-128.png" alt="サイトロゴ" class="sc-brand__logo">
+      <h1 class="sc-brand__title">ソシャゲアップデート情報</h1>
     </div>
 
+    <div id="notice">
+      <p>ソシャゲの掛け持ちをサポートするために作成しました。AIを組み込んでいるため情報の精度は改善中です。</p>
+    </div>
   </header>
-  <!-- フィルタメニュー -->
-<div id="filter-menu" class="menu" style="margin-bottom: 1rem;">
-  <button id="menu-toggle">☰ 表示するゲームを指定</button>
-  <div id="filter-area" class="menu-content"></div>
-</div>
+
+  <div id="filter-menu" class="menu">
+    <button id="menu-toggle">☰ 表示するゲームを指定</button>
+    <div id="filter-area" class="menu-content"></div>
+  </div>
 
   <main>
     <div id="calendar">読み込み準備中...</div>
   </main>
-  <!-- JSは必ずbodyの最後に -->
-  <script src="script.js"></script>
-</body>
-<footer>
-  <p>このサイトは個人利用目的で作成されています。公式情報は各ゲームの公式サイトをご確認ください。</p>
-  <p>規約は確認済みですが、問題があれば <a href="social-checker-1@ichigo.me">こちら</a> までご連絡ください。</p>
-</footer>
 
+  <footer>
+    <p>このサイトは個人利用目的で作成されています。公式情報は各ゲームの公式サイトをご確認ください。</p>
+    <p>規約は確認済みですが、問題があれば
+      <a href="mailto:social-checker-1@ich.example">social-checker-1@ich.example</a> までご連絡ください。
+    </p>
+  </footer>
+
+  <!-- JSは必ずbodyの最後に -->
+  <script src="/script.js" defer></script>
+</body>
 </html>

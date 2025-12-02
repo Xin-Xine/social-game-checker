@@ -197,3 +197,41 @@ button.mini:hover {
     padding: 0.2rem 0.4rem;
   }
 }
+
+
+/* =========================================
+   ソシャゲ支援サイト：ロゴ周り（スコープ化）
+   ========================================= */
+
+.sc-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  /* 既存ヘッダーや背景に馴染ませるため余白のみ指定 */
+  padding: 0.8rem 1rem;
+}
+
+/* 透過PNGのSロゴ。サイズはここだけで管理 */
+.sc-brand__logo {
+  width: 40px;   /* 表示サイズ（ロゴ128pxを縮小表示） */
+  height: 40px;
+  object-fit: contain;   /* 透過背景をそのまま活かす */
+  display: block;
+  /* 既存UIの柔らかいシャドウに合わせて軽めに */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+/* タイトルはこのブロック専用。グローバルh1は触らない */
+.sc-brand__title {
+  margin: 0;
+  font-size: clamp(1.3rem, 3vw, 1.8rem);
+  line-height: 1.1;
+  color: #2c3e50; /* 既存本文色に合わせる */
+}
+
+/* モバイル調整（既存の@mediaと衝突しないように同条件） */
+@media (max-width: 600px) {
+  .sc-brand { padding: 0.6rem 0.8rem; }
+  .sc-brand__logo { width: 32px; height: 32px; }
+  .sc-brand__title { font-size: clamp(1.1rem, 5vw, 1.4rem); }
+}
