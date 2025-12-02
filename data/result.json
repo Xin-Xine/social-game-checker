@@ -1,16 +1,154 @@
 [
   {
-    "game": "原神",
-    "date": "2025-12-04",
-    "title": "Ver.5.0アップデート「新章・ナタ地域解放」",
-    "summary": "新地域ナタが解放され、メインストーリー第5章が開始。新キャラクターやイベントが追加。",
-    "link": "https://genshin.hoyoverse.com/ja/news/detail/145123"
+    "game": "ウマ娘 プリティーダービー",
+    "company": "Cygames",
+    "date": "2025-11-28",
+    "title": "ぱかライブTV Vol.59発表内容＆新イベント",
+    "summary": "新育成ウマ娘「ナカヤマフェスタ」「ドリームジャーニー」登場、クリスマスキャンペーンや新ストーリーイベント「黄金聖夜24時」開催。",
+    "link": "https://umamusume.jp/news/"
   },
   {
-    "game": "崩壊：スターレイル",
-    "date": "2025-12-11",
-    "title": "Ver.3.0アップデート「星海の旅路」",
-    "summary": "新惑星エリアが追加され、メインストーリー第3部が開幕。新キャラクターやイベントが予定。",
-    "link": "https://hsr.hoyoverse.com/ja/news/145567"
+    "game": "プリンセスコネクト！Re:Dive",
+    "company": "Cygames",
+    "date": "2025-11-30",
+    "title": "最新アップデート",
+    "summary": "EX装備ショップ更新、ミッション追加、メモリアルサウンドボックスに新BGM追加、各種パック購入回数リセット。",
+    "link": "https://priconne-redive.jp/news/information/34158/"
+  },
+  {
+    "game": "シャドウバース ワールズビヨンド",
+    "company": "Cygames",
+    "date": "2025-11-27",
+    "title": "バランス調整アップデート",
+    "summary": "エルフクラス強化、ローズクイーンやクピタンなど複数カードの能力調整。第4弾カードパック「蒼空の六竜」配信中。",
+    "link": "https://shadowverse-wb.com/ja/news/?category=0&page=1"
+  },
+  {
+    "game": "メメントモリ",
+    "company": "Others",
+    "date": "2025-11-25",
+    "title": "Ver.4.3.0アップデート",
+    "summary": "新キャラクター「マーリン(藍)」実装、選択ピックアップガチャ復刻、各種不具合修正。",
+    "link": "https://mememori-game.com/boi_official/"
+  },
+  {
+    "game": "ラストオリジン",
+    "company": "Others",
+    "date": "2025-11-27",
+    "title": "大型アップデート",
+    "summary": "メインストーリー第13区域「暁の雪原」第1部公開、新規戦闘員3体とスキン4種追加、復刻イベント「光届かぬ聖域」開催。",
+    "link": "https://prtimes.jp/main/html/rd/p/000000102.000155525.html"
+  },
+  {
+    "game": "原神",
+    "company": "HoYoverse",
+    "date": "2025-12-03",
+    "title": "Ver.6.2 Luna IIIアップデート",
+    "summary": "新キャラクター「ドゥリン」「ヤフォダ」登場、魔女会メンバー「アリス」「ニコ・リヤン」参戦、新魔神任務第5幕・第6幕追加、イベント多数開催。",
+    "link": "https://genshin.hoyoverse.com/ja/news/detail/169872"
+  },
+  {
+    "game": "崩壊スターレイル",
+    "company": "HoYoverse",
+    "date": "2025-11-26",
+    "title": "Ver.3.7後半アップデート",
+    "summary": "新キャラクター「キュレネ」実装、開拓クエスト「明日は昨日に」追加、イベント「風雲！にゃんこ城」「奇物宝庫トレジャー」開催、復刻キャラ「ファイノン」「サフェル」「モーディス」登場。",
+    "link": "https://hsr.hoyoverse.com/ja-jp/news/179872"
+  },
+  {
+    "game": "崩壊3rd",
+    "company": "HoYoverse",
+    "date": "2025-11-17",
+    "title": "Ver.8.6アップデート",
+    "summary": "新キャラクター追加、メインストーリー第2部更新、各種イベント実施。前Ver.8.5からの大型拡張。",
+    "link": "https://www.honkaiimpact3.com/global/ja-jp/news/178965"
+  },
+  {
+    "game": "ゼンレスゾーンゼロ",
+    "company": "HoYoverse",
+    "date": "2025-11-26",
+    "title": "Ver.2.4アップデート",
+    "summary": "新キャラクター「ダイアリン」「盤岳」登場、ストーリー新章「遥かなる深淵に臨めども」追加、各種イベント開催。",
+    "link": "https://zenless.hoyoverse.com/ja-jp/news/169845"
+  },
+  {
+    "game": "アイドルマスター シンデレラガールズ",
+    "company": "BandaiNamco-CinderellaGirls",
+    "date": "2025-11-29",
+    "title": "CINDERELLA GIRLS fes. Once Upon a St@rs開催",
+    "summary": "幕張メッセでxRライブイベント開催、新曲披露や多数アイドル出演。",
+    "link": "https://idolmaster-official.jp/news/latest/cinderellagirls"
+  },
+  {
+    "game": "アイドルマスター ミリオンライブ",
+    "company": "BandaiNamco-MillionLive",
+    "date": "2025-11-30",
+    "title": "プラチナスターシアター～REALIZE！～イベント",
+    "summary": "楽曲「REALIZE！」を使用した期間限定イベント開催、限定カード「我那覇響」「星井美希」登場。",
+    "link": "https://idolmaster-official.jp/news/01_17453"
+  },
+  {
+    "game": "アイドルマスター シャイニーカラーズ",
+    "company": "BandaiNamco-ShinyColors",
+    "date": "2025-11-30",
+    "title": "シャニソン『Silence Noël』ガシャ＆新曲追加",
+    "summary": "田中摩美々・斑鳩ルカの限定カード登場、新曲『アイノウ』追加、イベント「PLATINA ERRØR」開催。",
+    "link": "https://idolmaster-official.jp/news/01_17508"
+  },
+  {
+    "game": "学園アイドルマスター",
+    "company": "BandaiNamco-GakuenIdolmaster",
+    "date": "2025-12-01",
+    "title": "新シナリオSTEP3『葛城リーリヤ』予告",
+    "summary": "新アイドル葛城リーリヤのSTEP3シナリオ追加、12月4日生配信予定。",
+    "link": "https://game.watch.impress.co.jp/docs/news/2067739.html"
+  },
+  {
+    "game": "アークナイツ",
+    "company": "Yostar",
+    "date": "2025-11-27",
+    "title": "サイドストーリー「生存航路」復刻ライト版",
+    "summary": "イベント「生存航路」復刻開催、限定★5オペレーター「アンダーフロー」入手可能、EXステージ追加。",
+    "link": "https://arknights.jp/news/2031"
+  },
+  {
+    "game": "ブルーアーカイブ",
+    "company": "Yostar",
+    "date": "2025-11-20",
+    "title": "イベント『冬空の文芸復興』開催",
+    "summary": "新キャラクター「ヤクモ」「タカネ」登場、総力戦「クロカゲ」実施、メインストーリーVol.6第3章公開。",
+    "link": "https://www.onlinegamer.jp/game/1000001753/news/"
+  },
+  {
+    "game": "雀魂 -じゃんたま-",
+    "company": "Yostar",
+    "date": "2025-11-25",
+    "title": "コラボイベント『アイドルマスター シャイニーカラーズ』開催",
+    "summary": "シャニマスコラボイベント開始、限定雀士や着せ替え実装、新規イベント「青雲の志」同時開催。",
+    "link": "https://game8.jp/jantama/632473"
+  },
+  {
+    "game": "鳴潮",
+    "company": "KuroGames",
+    "date": "2025-11-20",
+    "title": "Ver.2.8「琥珀の都へ」アップデート",
+    "summary": "新キャラクター「千咲」「卜霊」登場、メインストーリー第2章第12幕追加、各種システム改善。",
+    "link": "https://www.4gamer.net/games/634/G063420/20251120006/"
+  },
+  {
+    "game": "遊戯王 マスターデュエル",
+    "company": "Konami",
+    "date": "2025-12-05",
+    "title": "最新リミットレギュレーション適用",
+    "summary": "新パック「ジエンドオブギルト」「フューチャービギンズゼロ」追加、大天使クリスティアなど禁止カード指定。",
+    "link": "https://www.konami.com/yugioh/masterduel/jp/ja/"
+  },
+  {
+    "game": "プロジェクトセカイ カラフルステージ！ feat. 初音ミク",
+    "company": "Sega",
+    "date": "2025-12-01",
+    "title": "第4回超高難易度楽曲コンテスト開催",
+    "summary": "「プロセカULTIMATE」や「プロセカNEXT」楽曲コンテスト開催、衣装デザインキャンペーン新テーマ開始。",
+    "link": "https://pjsekai.sega.jp/news/index.html"
   }
 ]

@@ -2,17 +2,34 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>ゲーム更新情報</title>
+  <title>ソシャゲアップデート情報</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
-    <h1>ゲーム更新情報</h1>
+    <h1>ソシャゲアップデート情報</h1>
+    <div id="notice" style="margin: 1rem 0; padding: 0.5rem; background: #f9f9f9; border: 1px solid #ccc;">
+      <p>
+    ソシャゲの掛け持ちをサポートするために作成しました。
+    AIを組み込んでいるため情報の精度は改善中です。</p>
+    </div>
+
   </header>
+  <!-- フィルタメニュー -->
+<div id="filter-menu" class="menu" style="margin-bottom: 1rem;">
+  <button id="menu-toggle">☰ 表示するゲームを指定</button>
+  <div id="filter-area" class="menu-content"></div>
+</div>
+
   <main>
     <div id="calendar">読み込み準備中...</div>
   </main>
   <!-- JSは必ずbodyの最後に -->
   <script src="script.js"></script>
 </body>
+<footer>
+  <p>このサイトは個人利用目的で作成されています。公式情報は各ゲームの公式サイトをご確認ください。</p>
+  <p>規約は確認済みですが、問題があれば <a href="social-checker-1@ichigo.me">こちら</a> までご連絡ください。</p>
+</footer>
+
 </html>

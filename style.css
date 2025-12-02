@@ -1,36 +1,199 @@
+/* 全体背景とフォント */
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 0.95rem; /* PCでも少し小さめに */
+  background: linear-gradient(180deg, #f0f4ff, #ffffff);
+  background-attachment: fixed;
+  color: #2c3e50;
+  margin: 0;
+  padding: 0;
+}
+
+#notice {
+
+  color: #333;
+  padding: 0.8rem;
+  margin: 0.8rem 0;
+  border: 1px solid #f0c36d;
+  border-radius: 6px;
+  opacity: 1; /* 常に表示 */
+}
+
+
+/* 日付ブロック */
 .day {
-  background: linear-gradient(135deg, #ffffff, #f0f4ff);
-  margin-bottom: 1.5rem;
-  padding: 1rem;
+  background: linear-gradient(135deg, #ffffff, #f9f9ff);
+  margin-bottom: 1.2rem;
+  padding: 0.8rem;
   border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  transition: transform 0.2s ease;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.12), inset 0 0 8px rgba(255,255,255,0.4);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 .day:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15), inset 0 0 12px rgba(255,255,255,0.6);
+}
+.day h2 {
+  background: linear-gradient(90deg, #4a90e2, #357ab8);
+  color: white;
+  font-size: 1rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: 8px;
+  display: inline-block;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
 }
 
+/* 更新アイテム */
 .update-item {
-  border-top: 1px solid #ddd;
-  padding-top: 0.5rem;
-  margin-top: 0.5rem;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+  padding: 0.8rem;
+  margin-top: 0.8rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
-
+.update-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.12);
+}
+.update-item h3 {
+  font-size: 1.05rem;
+  font-weight: bold;
+  border-bottom: 2px solid currentColor;
+  margin-bottom: 0.4rem;
+}
 .update-item h4 {
   color: #2c3e50;
+  font-size: 0.95rem;
   font-weight: bold;
 }
-
 .update-item a {
   display: inline-block;
   margin-top: 0.3rem;
-  padding: 0.3rem 0.6rem;
-  background-color: #4a90e2;
+  padding: 0.35rem 0.7rem;
+  background: linear-gradient(135deg, #4a90e2, #357ab8);
   color: white;
-  border-radius: 4px;
+  border-radius: 6px;
   text-decoration: none;
-  transition: background 0.2s ease;
+  font-size: 0.85rem;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 .update-item a:hover {
-  background-color: #357ab8;
+  background: linear-gradient(135deg, #5aa0f2, #468ac8);
+  box-shadow: 0 0 8px rgba(74,144,226,0.6);
+}
+
+/* フィルタメニュー */
+#filter-menu {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+#menu-toggle {
+  background: linear-gradient(135deg, #4a90e2, #357ab8);
+  color: white;
+  padding: 0.45rem 0.9rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+#menu-toggle:hover {
+  background: linear-gradient(135deg, #5aa0f2, #468ac8);
+  box-shadow: 0 0 10px rgba(74,144,226,0.6);
+}
+.menu-content {
+  position: absolute;
+  background-color: #fff;
+  min-width: 200px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 0.8rem;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+  z-index: 100;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+}
+.menu-content.show {
+  max-height: 500px;
+  opacity: 1;
+}
+.menu-content label {
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+/* 小ボタン */
+button.mini {
+  background: linear-gradient(135deg, #e6eef9, #d8e6fb);
+  color: #2c3e50;
+  padding: 0.2rem 0.5rem;
+  border: 1px solid #cfe0ff;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+button.mini:hover {
+  background: linear-gradient(135deg, #d8e6fb, #cfe0ff);
+  box-shadow: 0 0 6px rgba(207,224,255,0.6);
+}
+
+/* 企業別カラー */
+.company-hoyoverse { border-left: 6px solid #8e44ad; }
+.company-kurogames { border-left: 6px solid #3498db; }
+.company-bandainamco-cinderellagirls { border-left: 6px solid #e67e22; }
+.company-bandainamco-millionlive { border-left: 6px solid #d35400; }
+.company-bandainamco-shinycolors { border-left: 6px solid #f39c12; }
+.company-bandainamco-gakuenidolmaster { border-left: 6px solid #c0392b; }
+.company-konami { border-left: 6px solid #b22222; }
+.company-yostar { border-left: 6px solid #2ecc71; }
+.company-sega { border-left: 6px solid #16a085; }
+.company-bushiroad { border-left: 6px solid #9b59b6; }
+.company-cygames { border-left: 6px solid #ff69b4; }
+.company-takaratomy { border-left: 6px solid #d35400; }
+.company-others { border-left: 6px solid #7f8c8d; }
+
+/* スマホ対応 */
+@media (max-width: 600px) {
+  body {
+    font-size: 0.85rem;
+  }
+  .day {
+    padding: 0.6rem;
+    border-radius: 10px;
+  }
+  .day h2 {
+    font-size: 0.9rem;
+    padding: 0.25rem 0.6rem;
+  }
+  .update-item {
+    padding: 0.6rem;
+    margin-top: 0.6rem;
+  }
+  .update-item h3 {
+    font-size: 0.95rem;
+  }
+  .update-item h4 {
+    font-size: 0.9rem;
+  }
+  .update-item a {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8rem;
+  }
+  #menu-toggle {
+    padding: 0.4rem 0.7rem;
+    font-size: 0.85rem;
+  }
+  .menu-content {
+    min-width: 160px;
+    padding: 0.6rem;
+  }
+  button.mini {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.4rem;
+  }
 }
