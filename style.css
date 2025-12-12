@@ -1,237 +1,136 @@
-/* 全体背景とフォント */
+/* Majestic Dark Theme */
+:root {
+  --bs-body-bg: #1a1a1a;
+  --bs-body-color: #e0e0e0;
+  --bs-font-sans-serif: 'Noto Serif JP', serif; /* メインを明朝に */
+  --majestic-gold: #d4af37;
+  --majestic-gold-hover: #f0c36d;
+  --majestic-dark-card: #252525;
+}
+
 body {
-  font-family: 'Noto Sans JP', sans-serif;
-  font-size: 0.95rem; /* PCでも少し小さめに */
-  background: linear-gradient(180deg, #f0f4ff, #ffffff);
+  font-family: var(--bs-font-sans-serif);
+  background-color: var(--bs-body-bg);
+  background-image: 
+    linear-gradient(rgba(26, 26, 26, 0.95), rgba(26, 26, 26, 0.95)),
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4af37' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   background-attachment: fixed;
-  color: #2c3e50;
-  margin: 0;
-  padding: 0;
 }
 
-#notice {
-
-  color: #333;
-  padding: 0.8rem;
-  margin: 0.8rem 0;
-  border: 1px solid #f0c36d;
-  border-radius: 6px;
-  opacity: 1; /* 常に表示 */
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Noto Serif JP', serif;
+  letter-spacing: 0.05em;
 }
 
-
-/* 日付ブロック */
-.day {
-  background: linear-gradient(135deg, #ffffff, #f9f9ff);
-  margin-bottom: 1.2rem;
-  padding: 0.8rem;
-  border-radius: 12px;
-  box-shadow: 0 6px 14px rgba(0,0,0,0.12), inset 0 0 8px rgba(255,255,255,0.4);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-.day:hover {
-  transform: translateY(-4px) scale(1.01);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.15), inset 0 0 12px rgba(255,255,255,0.6);
-}
-.day h2 {
-  background: linear-gradient(90deg, #4a90e2, #357ab8);
-  color: white;
-  font-size: 1rem;
-  padding: 0.3rem 0.8rem;
-  border-radius: 8px;
-  display: inline-block;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+.text-gold {
+  color: var(--majestic-gold) !important;
 }
 
-/* 更新アイテム */
-.update-item {
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
-  padding: 0.8rem;
-  margin-top: 0.8rem;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-.update-item:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.12);
-}
-.update-item h3 {
-  font-size: 1.05rem;
-  font-weight: bold;
-  border-bottom: 2px solid currentColor;
-  margin-bottom: 0.4rem;
-}
-.update-item h4 {
-  color: #2c3e50;
-  font-size: 0.95rem;
-  font-weight: bold;
-}
-.update-item a {
-  display: inline-block;
-  margin-top: 0.3rem;
-  padding: 0.35rem 0.7rem;
-  background: linear-gradient(135deg, #4a90e2, #357ab8);
-  color: white;
-  border-radius: 6px;
-  text-decoration: none;
-  font-size: 0.85rem;
-  transition: background 0.3s ease, box-shadow 0.3s ease;
-}
-.update-item a:hover {
-  background: linear-gradient(135deg, #5aa0f2, #468ac8);
-  box-shadow: 0 0 8px rgba(74,144,226,0.6);
+/* Custom Alert */
+.custom-alert {
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid var(--majestic-gold);
+  color: var(--bs-body-color);
 }
 
-/* フィルタメニュー */
-#filter-menu {
-  position: relative;
-  display: inline-block;
-  margin-bottom: 1rem;
-}
-#menu-toggle {
-  background: linear-gradient(135deg, #4a90e2, #357ab8);
-  color: white;
-  padding: 0.45rem 0.9rem;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 0.9rem;
-  transition: background 0.3s ease, box-shadow 0.3s ease;
-}
-#menu-toggle:hover {
-  background: linear-gradient(135deg, #5aa0f2, #468ac8);
-  box-shadow: 0 0 10px rgba(74,144,226,0.6);
-}
-.menu-content {
-  position: absolute;
-  background-color: #fff;
-  min-width: 200px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 0.8rem;
-  box-shadow: 0 6px 14px rgba(0,0,0,0.12);
-  z-index: 100;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease, opacity 0.3s ease;
-  opacity: 0;
-}
-.menu-content.show {
-  max-height: 500px;
-  opacity: 1;
-}
-.menu-content label {
-  display: block;
-  margin-bottom: 0.4rem;
-}
-
-/* 小ボタン */
-button.mini {
-  background: linear-gradient(135deg, #e6eef9, #d8e6fb);
-  color: #2c3e50;
-  padding: 0.2rem 0.5rem;
-  border: 1px solid #cfe0ff;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 0.8rem;
-  transition: background 0.3s ease, box-shadow 0.3s ease;
-}
-button.mini:hover {
-  background: linear-gradient(135deg, #d8e6fb, #cfe0ff);
-  box-shadow: 0 0 6px rgba(207,224,255,0.6);
-}
-
-/* 企業別カラー */
-.company-hoyoverse { border-left: 6px solid #8e44ad; }
-.company-kurogames { border-left: 6px solid #3498db; }
-.company-bandainamco-cinderellagirls { border-left: 6px solid #e67e22; }
-.company-bandainamco-millionlive { border-left: 6px solid #d35400; }
-.company-bandainamco-shinycolors { border-left: 6px solid #f39c12; }
-.company-bandainamco-gakuenidolmaster { border-left: 6px solid #c0392b; }
-.company-konami { border-left: 6px solid #b22222; }
-.company-yostar { border-left: 6px solid #2ecc71; }
-.company-sega { border-left: 6px solid #16a085; }
-.company-bushiroad { border-left: 6px solid #9b59b6; }
-.company-cygames { border-left: 6px solid #ff69b4; }
-.company-takaratomy { border-left: 6px solid #d35400; }
-.company-others { border-left: 6px solid #7f8c8d; }
-
-/* スマホ対応 */
-@media (max-width: 600px) {
-  body {
-    font-size: 0.85rem;
-  }
-  .day {
-    padding: 0.6rem;
-    border-radius: 10px;
-  }
-  .day h2 {
-    font-size: 0.9rem;
-    padding: 0.25rem 0.6rem;
-  }
-  .update-item {
-    padding: 0.6rem;
-    margin-top: 0.6rem;
-  }
-  .update-item h3 {
-    font-size: 0.95rem;
-  }
-  .update-item h4 {
-    font-size: 0.9rem;
-  }
-  .update-item a {
-    padding: 0.3rem 0.6rem;
-    font-size: 0.8rem;
-  }
-  #menu-toggle {
-    padding: 0.4rem 0.7rem;
-    font-size: 0.85rem;
-  }
-  .menu-content {
-    min-width: 160px;
-    padding: 0.6rem;
-  }
-  button.mini {
-    font-size: 0.75rem;
-    padding: 0.2rem 0.4rem;
-  }
-}
-
-
-/* =========================================
-   ソシャゲ支援サイト：ロゴ周り（スコープ化）
-   ========================================= */
-
-.sc-brand {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  /* 既存ヘッダーや背景に馴染ませるため余白のみ指定 */
-  padding: 0.8rem 1rem;
-}
-
-/* 透過PNGのSロゴ。サイズはここだけで管理 */
+/* Header Logo */
 .sc-brand__logo {
-  width: 40px;   /* 表示サイズ（ロゴ128pxを縮小表示） */
-  height: 40px;
-  object-fit: contain;   /* 透過背景をそのまま活かす */
-  display: block;
-  /* 既存UIの柔らかいシャドウに合わせて軽めに */
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  width: 60px;
+  height: 60px;
+  filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.5));
 }
 
-/* タイトルはこのブロック専用。グローバルh1は触らない */
-.sc-brand__title {
-  margin: 0;
-  font-size: clamp(1.3rem, 3vw, 1.8rem);
-  line-height: 1.1;
-  color: #2c3e50; /* 既存本文色に合わせる */
+/* Date Block (now just a header for the group) */
+.day-header {
+  border-bottom: 2px solid var(--majestic-gold);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+  margin-top: 2rem;
+  color: var(--majestic-gold);
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  font-size: 1.5rem;
 }
 
-/* モバイル調整（既存の@mediaと衝突しないように同条件） */
-@media (max-width: 600px) {
-  .sc-brand { padding: 0.6rem 0.8rem; }
-  .sc-brand__logo { width: 32px; height: 32px; }
-  .sc-brand__title { font-size: clamp(1.1rem, 5vw, 1.4rem); }
+/* Cards (Update Items) */
+.update-card {
+  background-color: var(--majestic-dark-card);
+  border: 1px solid #444;
+  border-left: 4px solid var(--majestic-gold); /* Default border */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.update-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+  border-color: #666;
+  border-left-color: var(--majestic-gold);
+}
+
+.update-card .card-title {
+  color: #fff;
+  border-bottom: 1px solid #444;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.update-card .card-subtitle {
+  color: #aaa;
+  font-size: 0.9rem;
+}
+
+/* Buttons */
+.btn-outline-gold {
+  color: var(--majestic-gold);
+  border-color: var(--majestic-gold);
+}
+
+.btn-outline-gold:hover {
+  background-color: var(--majestic-gold);
+  color: #000;
+}
+
+.btn-primary-gold {
+  background: linear-gradient(135deg, #d4af37, #b48f17);
+  border: none;
+  color: #000;
+  font-weight: bold;
+}
+.btn-primary-gold:hover {
+  background: linear-gradient(135deg, #f0c36d, #d4af37);
+  color: #000;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+}
+
+/* Company Specific Borders (overrides defaults) */
+.company-hoyoverse { border-left-color: #9b59b6 !important; }
+.company-kurogames { border-left-color: #3498db !important; }
+/* ... other company colors can be muted or kept vibrant, 
+   but let's keep them slightly muted to fit the dark theme */
+
+.dropdown-menu {
+  background-color: #252525;
+  border: 1px solid #444;
+}
+.dropdown-item {
+  color: #e0e0e0;
+}
+.dropdown-item:hover {
+  background-color: #333;
+  color: var(--majestic-gold);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--majestic-gold);
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" data-bs-theme="dark">
 <head>
   <meta charset="UTF-8">
   <title>ソシャゲアップデート情報</title>
@@ -8,9 +8,15 @@
   <meta name="robots" content="index, follow">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="./style.css">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
 
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="./style.css">
 
 <link rel="icon" href="./favicon-32.ico" type="image/x-icon">
 <link rel="icon" href="./favicon-32.png" sizes="32x32" type="image/png">
@@ -31,40 +37,62 @@
   <meta name="google-site-verification" content="CG4ZsbSVOyBrZHOPMKDI5-k-NobBmgVBSJ5xBz0GOLc" />
 </head>
 <body>
-  <header class="site-header">
-    <div class="sc-brand">
-      <img src="./logo-header-128.png" alt="サイトロゴ" class="sc-brand__logo">
-      <h1 class="sc-brand__title">ソシャゲアップデート情報</h1>
-    </div>
 
-    <div id="notice">
-      <p>ソシャゲの掛け持ちをサポートするために作成しました。AIを組み込んでいるため情報の精度は改善中です。</p>
+  <!-- Header -->
+  <header class="site-header py-4 mb-4 border-bottom border-secondary">
+    <div class="container text-center">
+      <div class="sc-brand d-inline-flex align-items-center justify-content-center mb-3">
+        <img src="./logo-header-128.png" alt="サイトロゴ" class="sc-brand__logo me-3">
+        <h1 class="sc-brand__title display-5 fw-bold text-gold">ソシャゲアップデート情報</h1>
+      </div>
+      <div id="notice" class="alert custom-alert mx-auto" role="alert" style="max-width: 800px;">
+        <i class="bi bi-info-circle me-2"></i>ソシャゲの掛け持ちをサポートするために作成しました。AIを組み込んでいるため情報の精度は改善中です。
+      </div>
     </div>
   </header>
 
-  <div id="filter-menu" class="menu">
-    <button id="menu-toggle">☰ 表示するゲームを指定</button>
-    <div id="filter-area" class="menu-content"></div>
+  <div class="container">
+    <div class="row justify-content-center mb-4">
+      <div class="col-md-8 text-center">
+         <div id="filter-menu" class="dropdown">
+            <button class="btn btn-outline-gold dropdown-toggle px-4 py-2" type="button" id="menu-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              表示するゲームを指定
+            </button>
+            <div id="filter-area" class="dropdown-menu p-3 shadow-lg" aria-labelledby="menu-toggle" style="width: 100%; max-width: 400px;"></div>
+         </div>
+      </div>
+    </div>
+
+    <main>
+      <div id="calendar" class="row">
+        <div class="col-12 text-center py-5">
+            <div class="spinner-border text-gold" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <p class="mt-2">読み込み準備中...</p>
+        </div>
+      </div>
+    </main>
   </div>
 
-  <main>
-    <div id="calendar">読み込み準備中...</div>
-  </main>
-
-  <footer>
-    <p>このサイトは個人利用目的で作成されています。公式情報は各ゲームの公式サイトをご確認ください。</p>
-    <p>規約は確認済みですが、問題があれば
-      <a href="mailto:social-checker-1@ich.example">social-checker-1@ich.example</a> までご連絡ください。
-    </p>
-    <p>このサイトでは試験的にアフィリエイト広告を導入しています。</p>
+  <footer class="mt-5 py-4 border-top border-secondary text-center text-muted">
+    <div class="container">
+      <p class="small">このサイトは個人利用目的で作成されています。公式情報は各ゲームの公式サイトをご確認ください。</p>
+      <p class="small">規約は確認済みですが、問題があれば <a href="mailto:social-checker-1@ich.example" class="text-gold">social-checker-1@ich.example</a> までご連絡ください。</p>
+      <p class="small">このサイトでは試験的にアフィリエイト広告を導入しています。</p>
+    </div>
   </footer>
+
 <!-- admax -->
 <script src="https://adm.shinobi.jp/s/7901861f5abdca59beee50b48e68eb76"></script>
 <!-- admax -->
  <!-- admax -->
 <script src="https://adm.shinobi.jp/s/140cac1ec55274837a819b048f5eb3b9"></script>
 <!-- admax -->
-  <!-- JSは必ずbodyの最後に -->
+
+  <!-- Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
   <script src="./script.js" defer></script>
 
 </body>

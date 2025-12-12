@@ -1,7 +1,7 @@
 // ====== 設定 ======
 const JSON_PATH = "./data/result.json";
-const CHUNK_SIZE = 20; // 最初に渡してくれた新しいバージョンの値を維持
-const IDLE_TIMEOUT = 16; // フォールバック用
+const CHUNK_SIZE = 20;
+const IDLE_TIMEOUT = 16;
 
 // ====== 企業カテゴリ（固定） ======
 const COMPANY_LIST = [
@@ -50,7 +50,6 @@ async function loadUpdates() {
   const filterArea = document.getElementById("filter-area");
 
   try {
-    container.textContent = "読み込み中...";
     const res = await fetch(JSON_PATH, { cache: "no-cache" });
     const data = await res.json();
 
@@ -63,7 +62,7 @@ async function loadUpdates() {
     renderUpdates(data);
   } catch (e) {
     console.error("❌ JSON読み込み失敗:", e);
-    container.innerHTML = "<p style='color:red;'>読み込み失敗</p>";
+    container.innerHTML = `<div class="col-12 text-center py-5"><p class="text-danger">データの読み込みに失敗しました。</p></div>`;
   }
 }
 
@@ -73,12 +72,13 @@ function buildFilterUI(filterArea, data) {
 
   // 全選択/全解除ボタン
   const controls = document.createElement("div");
-  controls.style.marginBottom = "0.5rem";
+  controls.className = "d-flex justify-content-between mb-2 px-2";
 
   const selectAllBtn = document.createElement("button");
   selectAllBtn.textContent = "全選択";
-  selectAllBtn.className = "mini";
-  selectAllBtn.addEventListener("click", () => {
+  selectAllBtn.className = "btn btn-sm btn-outline-success flex-fill me-1";
+  selectAllBtn.addEventListener("click", (e) => {
+    e.stopPropagation(); // メニューが閉じないように
     filterArea.querySelectorAll("input[type=checkbox]").forEach(cb => (cb.checked = true));
     setCompanyFilter(COMPANY_LIST);
     renderUpdates(data);
@@ -86,9 +86,9 @@ function buildFilterUI(filterArea, data) {
 
   const clearBtn = document.createElement("button");
   clearBtn.textContent = "全解除";
-  clearBtn.className = "mini";
-  clearBtn.style.marginLeft = "0.5rem";
-  clearBtn.addEventListener("click", () => {
+  clearBtn.className = "btn btn-sm btn-outline-danger flex-fill ms-1";
+  clearBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
     filterArea.querySelectorAll("input[type=checkbox]").forEach(cb => (cb.checked = false));
     setCompanyFilter([]);
     renderUpdates(data);
@@ -98,11 +98,29 @@ function buildFilterUI(filterArea, data) {
   controls.appendChild(clearBtn);
   frag.appendChild(controls);
 
+  const divider = document.createElement("hr");
+  divider.className = "dropdown-divider";
+  frag.appendChild(divider);
+
   // 企業ごとのチェックボックス
   COMPANY_LIST.forEach(company => {
-    const label = document.createElement("label");
+    const div = document.createElement("div");
+    div.className = "form-check px-4 py-1 dropdown-item";
+    div.addEventListener("click", (e) => {
+      // ラベルクリックでもチェックボックスを反応させる
+      // ただしinput自体をクリックしたときは重複しないように
+      if (e.target.tagName !== 'INPUT') {
+        e.stopPropagation();
+        const cb = div.querySelector('input');
+        cb.checked = !cb.checked;
+        cb.dispatchEvent(new Event('change'));
+      }
+    });
+
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
+    checkbox.className = "form-check-input";
+    checkbox.id = "check-" + company;
     checkbox.value = company;
     checkbox.checked = true;
     checkbox.addEventListener("change", () => {
@@ -110,10 +128,18 @@ function buildFilterUI(filterArea, data) {
       setCompanyFilter(checkedCompanies);
       scheduleRender(data);
     });
+    // クリックイベントの伝播ストップ (メニュー閉じ防止)
+    checkbox.addEventListener("click", e => e.stopPropagation());
 
-    label.appendChild(checkbox);
-    label.append(" " + company);
-    frag.appendChild(label);
+    const label = document.createElement("label");
+    label.className = "form-check-label w-100";
+    label.htmlFor = "check-" + company;
+    label.textContent = company;
+    label.style.cursor = "pointer";
+
+    div.appendChild(checkbox);
+    div.appendChild(label);
+    frag.appendChild(div);
   });
 
   filterArea.appendChild(frag);
@@ -147,7 +173,7 @@ function renderUpdates(data) {
     : data;
 
   if (!filtered.length) {
-    container.innerHTML = "<p style='color:red;'>更新情報がありません</p>";
+    container.innerHTML = `<div class="col-12 text-center py-5"><p class="text-muted">表示する更新情報がありません。</p></div>`;
     return;
   }
 
@@ -169,12 +195,15 @@ function renderUpdates(data) {
     if (dateIndex >= dates.length) return;
 
     const date = dates[dateIndex++];
-    const dayWrap = document.createElement("div");
-    dayWrap.className = "day";
 
+    // 日付ヘッダー
+    const headerCol = document.createElement("div");
+    headerCol.className = "col-12";
     const h2 = document.createElement("h2");
-    h2.textContent = date;
-    dayWrap.appendChild(h2);
+    h2.className = "day-header";
+    h2.innerHTML = `<i class="bi bi-calendar-event me-2"></i> ${date}`;
+    headerCol.appendChild(h2);
+    container.appendChild(headerCol);
 
     const items = grouped[date];
     let start = 0;
@@ -186,39 +215,56 @@ function renderUpdates(data) {
       for (let i = start; i < end; i++) {
         const item = items[i];
 
-        const div = document.createElement("div");
+        const col = document.createElement("div");
+        col.className = "col-md-6 col-lg-4 mb-4"; // 2カラム/3カラムレイアウト
+
+        const card = document.createElement("div");
         const companyClass = "company-" + toCompanyClassKey(item.company);
-        div.className = `update-item ${companyClass}`;
+        card.className = `card h-100 update-card ${companyClass}`;
 
-        const h3 = document.createElement("h3");
-        h3.innerHTML = `${item.game} <span style="color:gray">(${item.company})</span>`;
+        const cardBody = document.createElement("div");
+        cardBody.className = "card-body d-flex flex-column";
 
-        const h4 = document.createElement("h4");
-        h4.textContent = item.title;
+        const cardSubtitle = document.createElement("h6");
+        cardSubtitle.className = "card-subtitle mb-2";
+        cardSubtitle.textContent = item.company;
 
-        const p = document.createElement("p");
-        p.textContent = item.summary;
+        const cardTitle = document.createElement("h5");
+        cardTitle.className = "card-title";
+        cardTitle.textContent = item.game;
+
+        const cardText = document.createElement("p");
+        cardText.className = "card-text flex-grow-1";
+        // item.title (見出し的な内容) と summary を組み合わせる
+        cardText.innerHTML = `<strong>${item.title}</strong><br><span class="text-secondary small">${item.summary}</span>`;
+
+        const btnDiv = document.createElement("div");
+        btnDiv.className = "mt-3 text-end";
 
         const a = document.createElement("a");
         a.href = item.link;
         a.target = "_blank";
-        a.textContent = "公式サイトへ";
+        a.className = "btn btn-sm btn-primary-gold stretched-link"; // stretched-linkでカード全体をクリック可能に
+        a.textContent = "Official Site";
 
-        div.appendChild(h3);
-        div.appendChild(h4);
-        div.appendChild(p);
-        div.appendChild(a);
+        btnDiv.appendChild(a);
 
-        frag.appendChild(div);
+        cardBody.appendChild(cardSubtitle);
+        cardBody.appendChild(cardTitle);
+        cardBody.appendChild(cardText);
+        cardBody.appendChild(btnDiv);
+        card.appendChild(cardBody);
+        col.appendChild(card);
+
+        frag.appendChild(col);
       }
 
-      dayWrap.appendChild(frag);
+      container.appendChild(frag);
       start = end;
 
       if (start < items.length) {
         idle(renderChunk);
       } else {
-        container.appendChild(dayWrap);
         idle(renderNextDate);
       }
     }
@@ -229,14 +275,7 @@ function renderUpdates(data) {
   idle(renderNextDate);
 }
 
-// ====== メニュー開閉 ======
+// ====== 初期化 ======
 document.addEventListener("DOMContentLoaded", () => {
-  const toggleBtn = document.getElementById("menu-toggle");
-  const menuContent = document.querySelector(".menu-content");
-
-  toggleBtn.addEventListener("click", () => {
-    menuContent.classList.toggle("show");
-  });
-
   loadUpdates();
 });
